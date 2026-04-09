@@ -1,0 +1,53 @@
+site_name: Joey × 小爪 Wiki
+site_description: 实战经验、方法论与踩坑录
+site_url: https://zhuoyusmile.github.io/joey-wiki/
+
+repo_url: https://github.com/zhuoyusmile/joey-wiki
+repo_name: zhuoyusmile/joey-wiki
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - wikilinks
+
+nav:
+  - 首页: index.md
+  - 方法论:
+    - M2 管理模式: methodology/m2-manager-pattern.md
+    - 都知角色定位: methodology/coordinator-role.md
+    - 任务委派指南: methodology/task-delegation.md
+  - 踩坑录:
+    - 工兵陷阱: lessons/soldier-trap.md
+  - 工具与实践:
+    - Chromium 审计流程: practices/chromium-audit.md
