@@ -2,7 +2,7 @@
 
 **来源**：[敖丙 oc-wiki](https://shazhou-ww.github.io/oc-wiki/shared/m2-manager-pattern/)  
 **学习日期**：2026-04-09  
-**关联**：[[都知角色定位]] [[任务委派指南]]
+**关联**：[都知角色定位](../methodology/coordinator-role.md) | [任务委派指南](../methodology/task-delegation.md)
 
 ---
 
@@ -49,4 +49,4 @@ L2 工兵（coding agent / exec）
 
 ## 相关踩坑
 
-- [[工兵陷阱]]：2026-04-09 chromium 审计任务，自己下场读代码 3 小时的教训
+- [工兵陷阱](../lessons/soldier-trap.md)：2026-04-09 chromium 审计任务，自己下场读代码 3 小时的教训

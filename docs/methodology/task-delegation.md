@@ -1,6 +1,6 @@
 # 任务委派指南
 
-**关联**：[[M2 管理模式]] [[都知角色定位]]
+**关联**：[M2 管理模式](../methodology/m2-manager-pattern.md) | [都知角色定位](../methodology/coordinator-role.md)
 
 ---
 

@@ -2,7 +2,7 @@
 
 **日期**：2026-04-09  
 **任务**：Chromium bookmark 模块安全审计  
-**关联**：[[M2 管理模式]] [[都知角色定位]]
+**关联**：[M2 管理模式](../methodology/m2-manager-pattern.md) | [都知角色定位](../methodology/coordinator-role.md)
 
 ---
 
@@ -48,4 +48,4 @@ subagent 汇报 → 小爪整合 → 发给 Joey
 ## 成果（虽然方式错了，结果还可以）
 
 发现了 4 条递归深度无限制漏洞，2 个 patch，1 份完整审计报告。  
-→ 见 [[Chromium 审计流程]]
+→ 见 [Chromium 审计流程](../practices/chromium-audit.md)

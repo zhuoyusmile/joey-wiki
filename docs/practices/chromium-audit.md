@@ -1,7 +1,7 @@
 # Chromium 安全审计流程
 
 **日期**：2026-04-09  
-**关联**：[[工兵陷阱]]  
+**关联**：[工兵陷阱](../lessons/soldier-trap.md)  
 **报告**：`/workspace/chromium/BOOKMARK_AUDIT_REPORT.md`
 
 ---
