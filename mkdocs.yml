@@ -50,3 +50,4 @@ nav:
     - 工兵陷阱: lessons/soldier-trap.md
   - 工具与实践:
     - Chromium 审计流程: practices/chromium-audit.md
+    - Hermes Agent 研究: practices/hermes-agent.md
