@@ -13,6 +13,7 @@
 - **[方法论](methodology/m2-manager-pattern.md)**：怎么让 AI Agent 真正有用
 - **[踩坑录](lessons/soldier-trap.md)**：失败案例与教训
 - **[工具与实践](practices/chromium-audit.md)**：具体任务的操作经验
+- **[上下文管理与 Handoff](practices/context-handoff.md)**：避免长任务 agent 爆 context 的轻量方案
 
 ---
 
