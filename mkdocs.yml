@@ -51,3 +51,5 @@ nav:
   - 工具与实践:
     - Chromium 审计流程: practices/chromium-audit.md
     - Hermes Agent 研究: practices/hermes-agent.md
+    - claw-code 学习报告: practices/claw-code-study.md
+    - 小爪工作协议: practices/protocols.md
