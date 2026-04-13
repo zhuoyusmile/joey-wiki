@@ -46,6 +46,8 @@ nav:
     - M2 管理模式: methodology/m2-manager-pattern.md
     - 都知角色定位: methodology/coordinator-role.md
     - 任务委派指南: methodology/task-delegation.md
+    - Context 预算指南: methodology/context-budget-guide.md
+    - Handoff 交接模板: methodology/handoff-template.md
   - 踩坑录:
     - 工兵陷阱: lessons/soldier-trap.md
   - 工具与实践:
