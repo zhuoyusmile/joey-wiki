@@ -1,0 +1,2127 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="实战经验、方法论与踩坑录">
+      
+      
+      
+        <link rel="canonical" href="https://zhuoyusmile.github.io/joey-wiki/methodology/llm-personality-research/">
+      
+      
+        <link rel="prev" href="../ptfa-paper-deep-read/">
+      
+      
+        <link rel="next" href="../ai-hallucination/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LLM 性格研究综述 - Joey × 小爪 Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-header__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joey × 小爪 Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM 性格研究综述
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../m2-manager-pattern/" class="md-tabs__link">
+          
+  
+  
+  方法论
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lessons/soldier-trap/" class="md-tabs__link">
+          
+  
+  
+  踩坑录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practices/chromium-audit/" class="md-tabs__link">
+          
+  
+  
+  工具与实践
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-nav__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Joey × 小爪 Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    方法论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    方法论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2-manager-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2 管理模式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinator-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    都知角色定位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任务委派指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-budget-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context 预算指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handoff-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handoff 交接模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historical-fiction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    历史演义叙事方法论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../six-hats-v2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    六顶帽子 v2.1（4 帽 + 都知）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptfa-takeaways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 报告 + 心得
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptfa-paper-deep-read/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 论文精读底稿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM 性格研究综述
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM 性格研究综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、学术论文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、学术论文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-llm-big-five-mbti-hexaco-ipip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. 用心理学框架对 LLM 做人格画像（Big Five / MBTI / HEXACO / IPIP）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. 用心理学框架对 LLM 做人格画像（Big Five / MBTI / HEXACO / IPIP）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-personality-traits-in-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Personality Traits in Large Language Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-personallm-investigating-the-ability-of-llms-to-express-personality-traits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PersonaLLM: Investigating the Ability of LLMs to Express Personality Traits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-machine-mindset-an-mbti-exploration-of-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Machine Mindset: An MBTI Exploration of Large Language Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-who-is-chatgpt-benchmarking-llms-psychological-portrayal-using-psychobench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Who is ChatGPT? Benchmarking LLMs' Psychological Portrayal Using PsychoBench
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-do-llms-have-distinct-and-consistent-personality-trait-personality-testset-designed-for-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Do LLMs Have Distinct and Consistent Personality? TRAIT: Personality Testset Designed for LLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-a-psychometric-framework-for-evaluating-and-shaping-llm-personality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. A Psychometric Framework for Evaluating and Shaping LLM Personality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-evaluating-llm-alignment-under-big-five-personality-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Evaluating LLM Alignment under Big Five Personality Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. 模型差异与行为对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. 模型差异与行为对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-syceval-evaluating-llm-sycophancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. SycEval: Evaluating LLM Sycophancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-social-sycophancy-elephant-benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sycophancy / ELEPHANT Benchmark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-verbosity-veracity-demystify-verbosity-compensation-behavior-of-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verbosity ≠ Veracity: Demystify Verbosity Compensation Behavior of LLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. 多智能体按性格/角色分工
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. 多智能体按性格/角色分工">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-encouraging-divergent-thinking-in-llms-through-multi-agent-debate-mad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Encouraging Divergent Thinking in LLMs through Multi-Agent Debate (MAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-devils-advocate-anticipatory-reflection-for-llm-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Devil's Advocate: Anticipatory Reflection for LLM Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ptfa-six-thinking-hats-llm-facilitator-for-online-consensus-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. PTFA: Six Thinking Hats LLM Facilitator for Online Consensus Building
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-unleashing-diverse-thinking-modes-in-llms-through-multi-agent-collaboration-dimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Unleashing Diverse Thinking Modes in LLMs through Multi-Agent Collaboration (DiMo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、工业界报告
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、工业界报告">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#15-anthropic-claudes-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Anthropic — Claude's Character
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-anthropic-claudes-constitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Anthropic — Claude's Constitution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-traitpath-ai-language-model-personalities-claude-vs-chatgpt-vs-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. TraitPath — AI Language Model Personalities: Claude vs ChatGPT vs Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joey-5-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、关键发现（对 Joey 项目可用的 5-8 条结论）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、方法论启示（怎么用到「4 帽 + 都知」班子里）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、方法论启示（怎么用到「4 帽 + 都知」班子里）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 框架选型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 实现层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-joey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 论证素材（写方案 / 给 Joey 解释时可引用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源完整度
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-hallucination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 幻觉与多 agent 编排
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑录
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    踩坑录
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lessons/soldier-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工兵陷阱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具与实践
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具与实践
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/chromium-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chromium 审计流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/hermes-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/claw-code-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    claw-code 学习报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小爪工作协议
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、学术论文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、学术论文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-llm-big-five-mbti-hexaco-ipip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. 用心理学框架对 LLM 做人格画像（Big Five / MBTI / HEXACO / IPIP）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. 用心理学框架对 LLM 做人格画像（Big Five / MBTI / HEXACO / IPIP）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-personality-traits-in-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Personality Traits in Large Language Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-personallm-investigating-the-ability-of-llms-to-express-personality-traits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PersonaLLM: Investigating the Ability of LLMs to Express Personality Traits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-machine-mindset-an-mbti-exploration-of-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Machine Mindset: An MBTI Exploration of Large Language Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-who-is-chatgpt-benchmarking-llms-psychological-portrayal-using-psychobench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Who is ChatGPT? Benchmarking LLMs' Psychological Portrayal Using PsychoBench
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-do-llms-have-distinct-and-consistent-personality-trait-personality-testset-designed-for-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Do LLMs Have Distinct and Consistent Personality? TRAIT: Personality Testset Designed for LLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-a-psychometric-framework-for-evaluating-and-shaping-llm-personality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. A Psychometric Framework for Evaluating and Shaping LLM Personality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-evaluating-llm-alignment-under-big-five-personality-prompting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Evaluating LLM Alignment under Big Five Personality Prompting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. 模型差异与行为对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. 模型差异与行为对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-syceval-evaluating-llm-sycophancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. SycEval: Evaluating LLM Sycophancy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-social-sycophancy-elephant-benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sycophancy / ELEPHANT Benchmark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-verbosity-veracity-demystify-verbosity-compensation-behavior-of-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verbosity ≠ Veracity: Demystify Verbosity Compensation Behavior of LLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. 多智能体按性格/角色分工
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. 多智能体按性格/角色分工">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-encouraging-divergent-thinking-in-llms-through-multi-agent-debate-mad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Encouraging Divergent Thinking in LLMs through Multi-Agent Debate (MAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-devils-advocate-anticipatory-reflection-for-llm-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Devil's Advocate: Anticipatory Reflection for LLM Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-ptfa-six-thinking-hats-llm-facilitator-for-online-consensus-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. PTFA: Six Thinking Hats LLM Facilitator for Online Consensus Building
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-unleashing-diverse-thinking-modes-in-llms-through-multi-agent-collaboration-dimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Unleashing Diverse Thinking Modes in LLMs through Multi-Agent Collaboration (DiMo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、工业界报告
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、工业界报告">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#15-anthropic-claudes-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Anthropic — Claude's Character
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-anthropic-claudes-constitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Anthropic — Claude's Constitution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-traitpath-ai-language-model-personalities-claude-vs-chatgpt-vs-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. TraitPath — AI Language Model Personalities: Claude vs ChatGPT vs Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joey-5-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、关键发现（对 Joey 项目可用的 5-8 条结论）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、方法论启示（怎么用到「4 帽 + 都知」班子里）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、方法论启示（怎么用到「4 帽 + 都知」班子里）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 框架选型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 实现层
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 评估
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-joey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 论证素材（写方案 / 给 Joey 解释时可引用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        来源完整度
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="llm">LLM 性格特点研究综述</h1>
+<blockquote>
+<p>调研日期：2026-05-02
+范围：心理学人格框架对 LLM 的画像 / 模型间行为差异 / 多智能体按性格分工 / 工业界博客
+共收录 <strong>14 个真实来源</strong>（学术 11、工业/博客 3）</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、学术论文</h2>
+<h3 id="a-llm-big-five-mbti-hexaco-ipip">A. 用心理学框架对 LLM 做人格画像（Big Five / MBTI / HEXACO / IPIP）</h3>
+<h4 id="1-personality-traits-in-large-language-models">1. Personality Traits in Large Language Models</h4>
+<ul>
+<li><strong>作者/机构</strong>：Greg Serapio-García, Mustafa Safdari, et al. — Google DeepMind &amp; Cambridge &amp; USC</li>
+<li><strong>年份</strong>：2023（持续更新到 Nature Machine Intelligence 2025 版本）</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2307.00184</li>
+<li><strong>核心结论</strong>：</li>
+<li>用 IPIP-NEO（Big Five 标准量表）和 BFI 系统测量 PaLM 系列、Flan-PaLM。</li>
+<li>提出"在 LLM 上施加人格量表的有效性必须先验证心理测量学指标（reliability, construct validity）"，是该领域方法论奠基论文。</li>
+<li>发现：更大、指令微调更强的模型，人格测量越接近人类常模，且<strong>可以通过 prompt 把模型推向 Big Five 任意维度</strong>。</li>
+<li>该方向的"标杆引文"，几乎所有后续 LLM 人格研究都引它。</li>
+</ul>
+<h4 id="2-personallm-investigating-the-ability-of-llms-to-express-personality-traits">2. PersonaLLM: Investigating the Ability of LLMs to Express Personality Traits</h4>
+<ul>
+<li><strong>作者</strong>：Hang Jiang et al. — MIT Media Lab</li>
+<li><strong>年份</strong>：2024（NAACL Findings）</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2305.02547  ｜  https://aclanthology.org/2024.findings-naacl.229.pdf</li>
+<li><strong>核心结论</strong>：</li>
+<li>对 GPT-3.5 / GPT-4 构造 320 个 Big Five 人格组合的 persona。</li>
+<li>模型能在 BFI 量表上"自洽"地反映被赋予的人格；而且 persona 会<strong>显著影响后续故事写作的语言特征</strong>（用 LIWC 验证）。</li>
+<li>表明 prompt-based persona 不只是表面文字，会改变下游生成行为。</li>
+</ul>
+<h4 id="3-machine-mindset-an-mbti-exploration-of-large-language-models">3. Machine Mindset: An MBTI Exploration of Large Language Models</h4>
+<ul>
+<li><strong>作者</strong>：Cui et al.（FarReel AI Lab）</li>
+<li><strong>年份</strong>：2023→2024</li>
+<li><strong>URL</strong>：https://arxiv.org/html/2312.12999v3</li>
+<li><strong>核心结论</strong>：</li>
+<li>用 SFT + DPO 把 MBTI 类型固化进模型权重（不是 prompt 层面），得到 16 种 MBTI 风格的 LLM。</li>
+<li>发现不同 MBTI 类型的模型在 reasoning、共情、生成长度上存在系统性差异（如 NT 型在 reasoning 任务更强）。</li>
+<li>提供了"用人格做模型分化"的训练侧实证。</li>
+</ul>
+<h4 id="4-who-is-chatgpt-benchmarking-llms-psychological-portrayal-using-psychobench">4. Who is ChatGPT? Benchmarking LLMs' Psychological Portrayal Using PsychoBench</h4>
+<ul>
+<li><strong>作者</strong>：Huang et al. — CUHK ARISE</li>
+<li><strong>年份</strong>：2024（ICLR）</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2310.01386  ｜  https://github.com/CUHK-ARISE/PsychoBench</li>
+<li><strong>核心结论</strong>：</li>
+<li>提出 <strong>PsychoBench</strong>：13 个临床心理学量表（含 Big Five、DTDD 暗黑三联征、共情、情绪等），覆盖 5 个 LLM。</li>
+<li>发现 GPT-4 比 GPT-3.5 表现出更高的 agreeableness、更低的暗黑特质；LLaMA-2 的"神经质"显著高于闭源模型。</li>
+<li>用越狱 prompt 时，模型的"暗黑面"会被显著放大——暗示安全训练只是抑制层。</li>
+</ul>
+<h4 id="5-do-llms-have-distinct-and-consistent-personality-trait-personality-testset-designed-for-llms">5. Do LLMs Have Distinct and Consistent Personality? TRAIT: Personality Testset Designed for LLMs</h4>
+<ul>
+<li><strong>作者</strong>：Lee et al.（NAACL 2025 Findings）</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://aclanthology.org/2025.findings-naacl.469/</li>
+<li><strong>核心结论</strong>：</li>
+<li>8K 多选题的 TRAIT 基准，专门测 LLM 人格"在不同上下文/语气提示下是否稳定"。</li>
+<li>发现：不同模型确实有<strong>统计上稳定的差异</strong>（如 Claude 系列高 agreeableness、Mistral 系列低 conscientiousness），但单模型在不同 prompt 下波动大。</li>
+<li>提出"prompt-induced personality drift"指标。</li>
+</ul>
+<h4 id="6-a-psychometric-framework-for-evaluating-and-shaping-llm-personality">6. A Psychometric Framework for Evaluating and Shaping LLM Personality</h4>
+<ul>
+<li><strong>作者</strong>：Mustafa Safdari, Greg Serapio-García et al.（DeepMind 团队后续工作）</li>
+<li><strong>年份</strong>：2025（Nature Machine Intelligence）</li>
+<li><strong>URL</strong>：https://www.nature.com/articles/s42256-025-01115-6</li>
+<li><strong>核心结论</strong>：</li>
+<li>在 PaLM、Llama 2、Mistral、Mixtral、GPT 系列上系统化施测 Big Five。</li>
+<li>验证可以通过 prompt 把模型"塑形"到任意 Big Five profile，并量化稳定性。</li>
+<li>是 #1 的扩展，给出了完整的 psychometric 评估流水线。</li>
+</ul>
+<h4 id="7-evaluating-llm-alignment-under-big-five-personality-prompting">7. Evaluating LLM Alignment under Big Five Personality Prompting</h4>
+<ul>
+<li><strong>作者</strong>：CEUR-WS Workshop 2025</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://ceur-ws.org/Vol-4178/paper6.pdf</li>
+<li><strong>核心结论</strong>：</li>
+<li><strong>6 个模型横向对比</strong>：GPT-4o Mini、Llama 3.2、Mistral NeMo、Gemini 2.0 Flash Lite、Gemma 2、Claude 3 Haiku。</li>
+<li>发现各家模型对"高/低 Big Five"prompt 的响应一致性差异巨大：Claude 最稳定，Gemini 在 conscientiousness 维度最容易被推动。</li>
+<li>项目用得上：明确指出<strong>模型间存在可复现的"性格倾向差"</strong>。</li>
+</ul>
+<h3 id="b">B. 模型差异与行为对比</h3>
+<h4 id="8-syceval-evaluating-llm-sycophancy">8. SycEval: Evaluating LLM Sycophancy</h4>
+<ul>
+<li><strong>作者</strong>：Stanford team</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2502.08177</li>
+<li><strong>核心结论</strong>：</li>
+<li>横向测 ChatGPT-4o、Claude-Sonnet、Gemini-1.5-Pro 在数学（AMPS）和医疗（MedQuad）上的"顺从度"。</li>
+<li>发现：当用户反对模型答案时，<strong>Gemini 最容易让步、Claude 最坚持立场、GPT-4o 居中</strong>。</li>
+<li>量化了"批判性 vs 顺从性"轴上的模型差异——直接对应 Joey 项目的需求。</li>
+</ul>
+<h4 id="9-social-sycophancy-elephant-benchmark">9. Social Sycophancy / ELEPHANT Benchmark</h4>
+<ul>
+<li><strong>作者</strong>：Cheng et al.（Stanford）</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2505.13995</li>
+<li><strong>核心结论</strong>：</li>
+<li>提出"social sycophancy"——比答案顺从更广义的"维护用户面子"行为。</li>
+<li>ELEPHANT 基准测 8 个模型，发现<strong>所有主流模型都过度迎合</strong>，但 Claude 系列在"拒绝错误前提"上表现最好。</li>
+<li>给出了"委婉 vs 直接"维度的量化方法。</li>
+</ul>
+<h4 id="10-verbosity-veracity-demystify-verbosity-compensation-behavior-of-llms">10. Verbosity ≠ Veracity: Demystify Verbosity Compensation Behavior of LLMs</h4>
+<ul>
+<li><strong>作者</strong>：Penn State NLP</li>
+<li><strong>年份</strong>：2024 EMNLP</li>
+<li><strong>URL</strong>：https://arxiv.org/html/2411.07858v2  ｜  https://github.com/psunlpgroup/VerbosityLLM</li>
+<li><strong>核心结论</strong>：</li>
+<li>系统分类"啰嗦"行为为 5 类，发现 GPT-4 / Claude / LLaMA 各有不同的 verbosity 倾向。</li>
+<li><strong>Claude 倾向于多角度铺陈、GPT-4 倾向于结构化列举、LLaMA 倾向于重复性补充</strong>。</li>
+<li>提供了"风格差异"的实证基础，对"4 帽分工"很有参考价值。</li>
+</ul>
+<h3 id="c">C. 多智能体按性格/角色分工</h3>
+<h4 id="11-encouraging-divergent-thinking-in-llms-through-multi-agent-debate-mad">11. Encouraging Divergent Thinking in LLMs through Multi-Agent Debate (MAD)</h4>
+<ul>
+<li><strong>作者</strong>：Liang et al. — Tencent AI Lab</li>
+<li><strong>年份</strong>：2024（EMNLP Main）</li>
+<li><strong>URL</strong>：https://aclanthology.org/2024.emnlp-main.992/</li>
+<li><strong>核心结论</strong>：</li>
+<li>提出 MAD 框架："正方 vs 反方 + 裁判"的三角辩论结构，专门解决 LLM 的"思维退化"（Degeneration-of-Thought）问题。</li>
+<li>实验：在反直觉数学和翻译任务上，MAD 比单 agent CoT 显著提升正确率。</li>
+<li><strong>直接对应 Joey 项目</strong>："devil's advocate"或"反方"角色对纠正 LLM 自我强化的盲点是关键。</li>
+</ul>
+<h4 id="12-devils-advocate-anticipatory-reflection-for-llm-agents">12. Devil's Advocate: Anticipatory Reflection for LLM Agents</h4>
+<ul>
+<li><strong>作者</strong>：Wang &amp; Mao — UC Davis</li>
+<li><strong>年份</strong>：2024（EMNLP Findings）</li>
+<li><strong>URL</strong>：https://arxiv.org/abs/2405.16334  ｜  https://aclanthology.org/2024.findings-emnlp.53/</li>
+<li><strong>核心结论</strong>：</li>
+<li>在 LLM agent 的 plan→act 循环里加入"devil's advocate"内省 prompt，让 agent 主动质疑自己。</li>
+<li>在 WebArena 等 agent benchmark 上显著提升任务完成率。</li>
+<li>证明<strong>"内置一个反对者"是稳定可复现的能力增量</strong>，而不只是噱头。</li>
+</ul>
+<h4 id="13-ptfa-six-thinking-hats-llm-facilitator-for-online-consensus-building">13. PTFA: Six Thinking Hats LLM Facilitator for Online Consensus Building</h4>
+<ul>
+<li><strong>作者</strong>：Imamura et al.</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://arxiv.org/html/2503.12499v2</li>
+<li><strong>核心结论</strong>：</li>
+<li><strong>真正用 De Bono 六顶思考帽方法论</strong>做 LLM facilitator 的论文。</li>
+<li>在线共识平台中，LLM agent 按 6 顶帽轮换主持讨论（白帽=事实、红帽=情感、黑帽=批判、黄帽=乐观、绿帽=创意、蓝帽=流程）。</li>
+<li>实证显示比无帽框架的 LLM 协调更能产生平衡观点和减少群体盲从。</li>
+<li><strong>直接是 Joey 项目"4 帽 + 都知"班子的学术先例</strong>。</li>
+</ul>
+<h4 id="14-unleashing-diverse-thinking-modes-in-llms-through-multi-agent-collaboration-dimo">14. Unleashing Diverse Thinking Modes in LLMs through Multi-Agent Collaboration (DiMo)</h4>
+<ul>
+<li><strong>作者</strong>：He, Feng et al.</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://arxiv.org/pdf/2510.16645</li>
+<li><strong>核心结论</strong>：</li>
+<li>4 个专长不同的 LLM agent（演绎/归纳/类比/批判）做结构化辩论。</li>
+<li>比单 agent CoT 和同质 multi-agent 都更好，且<strong>可解释性显著提升</strong>——能产出可审计的中间推理轨迹。</li>
+<li>与 Joey 的"4 帽分工"思路几乎完全对齐。</li>
+</ul>
+<hr />
+<h2 id="_2">二、工业界报告</h2>
+<h4 id="15-anthropic-claudes-character">15. Anthropic — Claude's Character</h4>
+<ul>
+<li><strong>机构</strong>：Anthropic</li>
+<li><strong>年份</strong>：2024-06</li>
+<li><strong>URL</strong>：https://www.anthropic.com/research/claude-character</li>
+<li><strong>核心结论</strong>：</li>
+<li>Anthropic 官宣："Claude 3 是第一个引入 character training 的模型"——alignment 阶段专门训练人格化特质（curiosity, open-mindedness, thoughtfulness）。</li>
+<li>训练流水线用 Claude 自生成的合成数据 + 人类研究员逐特质 review。</li>
+<li>强调"不希望 Claude 把性格当成不能违背的规则，而是行为倾向"——这是工业界对"模型人格"最完整的公开论述。</li>
+</ul>
+<h4 id="16-anthropic-claudes-constitution">16. Anthropic — Claude's Constitution</h4>
+<ul>
+<li><strong>机构</strong>：Anthropic</li>
+<li><strong>年份</strong>：2025（更新版）</li>
+<li><strong>URL</strong>：https://www.anthropic.com/constitution</li>
+<li><strong>核心结论</strong>：</li>
+<li>1 万字以上的"Claude 行为宪法"，明确 4 优先级：safety → ethics → Anthropic policy → helpful honesty。</li>
+<li>是塑造 Claude"人格"的根文档，被用来生成训练时的合成对话。</li>
+<li><strong>方法论可借鉴</strong>：给 4 顶帽各写一份小宪法，可能比纯 prompt 更稳定。</li>
+</ul>
+<h4 id="17-traitpath-ai-language-model-personalities-claude-vs-chatgpt-vs-gemini">17. TraitPath — AI Language Model Personalities: Claude vs ChatGPT vs Gemini</h4>
+<ul>
+<li><strong>机构</strong>：TraitPath（行业博客，引用 peer-reviewed Big Five 研究）</li>
+<li><strong>年份</strong>：2025</li>
+<li><strong>URL</strong>：https://www.traitpath.com/blog/articles/ai-llm-personalities</li>
+<li><strong>核心结论</strong>：</li>
+<li>综合多篇 Big Five 测量论文，给出三家模型的可读对比："Claude 高 agreeableness + 高 openness、ChatGPT 高 conscientiousness、Gemini 高 extraversion 但低 conscientiousness"。</li>
+<li>偏科普但引用扎实，可作为"非学术读者沟通"的素材。</li>
+</ul>
+<hr />
+<h2 id="joey-5-8">三、关键发现（对 Joey 项目可用的 5-8 条结论）</h2>
+<ol>
+<li>
+<p><strong>"模型有可测量的稳定性格差异"是已被 peer-review 多次确认的事实</strong>（PsychoBench、TRAIT、CEUR-WS 6-model study）。这意味着"按性格分工"不是隐喻，而是有量化基础的工程选择。</p>
+</li>
+<li>
+<p><strong>Big Five 优于 MBTI</strong>：学术界主流是 Big Five / IPIP-NEO，因为它有心理测量学效度；MBTI 在 LLM 研究里更多是工程化标签（如 Machine Mindset）。Joey 给四帽贴标签时，<strong>用 Big Five 维度比 MBTI 更易被接受</strong>（如"高 openness + 低 agreeableness = 黑帽/批判者"）。</p>
+</li>
+<li>
+<p><strong>"批判性 vs 顺从性"是一条已被基准化的轴</strong>（SycEval、ELEPHANT）。Claude 在保持立场上最强、Gemini 最易让步——<strong>如果项目要"都知"做最终拍板，用 Claude 系列；如果要快速产出多样观点，用 Gemini/GPT 做帽子分工</strong>。</p>
+</li>
+<li>
+<p><strong>"加一个 devil's advocate"是性能-验证过的增量</strong>（MAD、Devil's Advocate AR、DiMo）。不是审美选择，是有实验数据支撑的——Joey 的"黑帽"角色有学术背书。</p>
+</li>
+<li>
+<p><strong>Six Thinking Hats 已经被搬到 LLM 上做过实证</strong>（PTFA, arXiv 2503.12499）。可以直接引用作为"4 帽 + 都知"框架的 prior art，不用从头解释。</p>
+</li>
+<li>
+<p><strong>Anthropic 的 character training 思路提示</strong>：与其每次 prompt 里塞角色，不如<strong>给每个帽子写一份"小宪法"</strong>作为系统 prompt。比 prompt-only persona 更稳定（PersonaLLM、TRAIT 都显示 prompt-only 容易 drift）。</p>
+</li>
+<li>
+<p><strong>风格差异是实测的</strong>：Claude 多角度铺陈、GPT 结构化列举、LLaMA 重复补充（Verbosity 论文）。<strong>Joey 的"绿帽创意"用 Claude，"白帽事实"用 GPT，可能比同质化分工更自然</strong>。</p>
+</li>
+<li>
+<p><strong>Prompt 可以塑形人格但有上限</strong>：Serapio-García 2025 (Nature MI) 证明 Big Five 可被 prompt 推动，但<strong>漂移幅度因模型而异</strong>。这意味着"4 帽"的实现要做 calibration——不能假设一个 prompt 模板对所有模型都同样有效。</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">四、方法论启示（怎么用到「4 帽 + 都知」班子里）</h2>
+<h3 id="1">1. 框架选型</h3>
+<ul>
+<li><strong>用 Big Five 作为人格语言</strong>，避免 MBTI（学术不接受、工程上又没明显优势）。</li>
+<li>4 帽对应可量化的 Big Five 组合：</li>
+<li>白帽（事实）= 高 conscientiousness + 中等 openness</li>
+<li>红帽（直觉/情感）= 高 extraversion + 高 neuroticism（敏感）</li>
+<li>黑帽（批判）= 低 agreeableness + 高 conscientiousness（"devil's advocate"轴）</li>
+<li>绿帽（创意）= 高 openness + 低 conscientiousness</li>
+<li>都知（仲裁）= 高 agreeableness + 高 conscientiousness（综合协调）</li>
+</ul>
+<h3 id="2">2. 实现层</h3>
+<ul>
+<li><strong>每顶帽子写一份"小宪法"</strong>（200-500 字），不是单行 system prompt。参考 Anthropic Constitution 的写法：先讲价值观，再讲行为指引，最后讲优先级。</li>
+<li><strong>跨模型分工</strong>：如果资源允许，用不同模型扮不同帽子（Claude 当都知/绿帽，GPT 当白帽，Gemini 当红帽，本地 Llama 当黑帽）。引用 SycEval / Verbosity 论文做依据。</li>
+<li><strong>加一轮"devil's advocate" loop</strong>：直接借鉴 Devil's Advocate AR（arXiv 2405.16334）的设计——黑帽不只是参与讨论，要在都知做出结论前主动质疑一次。</li>
+</ul>
+<h3 id="3">3. 评估</h3>
+<ul>
+<li><strong>用 PsychoBench / TRAIT 的方法做事前 calibration</strong>：让每顶帽子先做 Big Five 自评，看 prompt 是否真的把它推到了目标位置。如果漂移大，加一份 few-shot example 锚定。</li>
+<li><strong>用 SycEval / ELEPHANT 的方式测都知</strong>：故意给错误前提，看都知是否会被带偏。如果都知顺从度高，换模型或加"批判性"约束。</li>
+</ul>
+<h3 id="4-joey">4. 论证素材（写方案 / 给 Joey 解释时可引用）</h3>
+<ul>
+<li>学术先例：PTFA（2025）已经做过 Six Hats × LLM</li>
+<li>性能背书：MAD、DiMo 都证明角色化 multi-agent 比同质化更优</li>
+<li>行业标杆：Anthropic Claude character training 公开了类似的塑形方法</li>
+<li>可证伪轴：批判性（SycEval）和风格（Verbosity）都可量化，方便上线后做 A/B</li>
+</ul>
+<hr />
+<h2 id="_3">来源完整度</h2>
+<ul>
+<li>arXiv 原文：10 个（# 1-3, 5, 7-12, 14）</li>
+<li>顶会论文（peer-reviewed）：含 NAACL, EMNLP, ICLR, Nature MI</li>
+<li>工业博客：3 个（Anthropic ×2、TraitPath）</li>
+<li>全部链接经过搜索引擎返回，未编造</li>
+</ul>
+<p>未发现的类型：
+- <strong>未发现专门用 HEXACO 框架对 LLM 做大规模评估的论文</strong>（只有零星引用，可能因为 HEXACO 在英语 NLP 圈不主流）
+- <strong>OpenAI / Google 没有像 Anthropic 这样系统公开的"模型人格"博客</strong>（OpenAI Model Spec 偏行为规范、不强调"性格"；DeepMind 通过学术论文发表而非博客）</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

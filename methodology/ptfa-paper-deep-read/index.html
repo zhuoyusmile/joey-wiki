@@ -1,0 +1,2151 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="实战经验、方法论与踩坑录">
+      
+      
+      
+        <link rel="canonical" href="https://zhuoyusmile.github.io/joey-wiki/methodology/ptfa-paper-deep-read/">
+      
+      
+        <link rel="prev" href="../ptfa-takeaways/">
+      
+      
+        <link rel="next" href="../llm-personality-research/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>PTFA 论文精读底稿 - Joey × 小爪 Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ptfa" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-header__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joey × 小爪 Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PTFA 论文精读底稿
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../m2-manager-pattern/" class="md-tabs__link">
+          
+  
+  
+  方法论
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lessons/soldier-trap/" class="md-tabs__link">
+          
+  
+  
+  踩坑录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practices/chromium-audit/" class="md-tabs__link">
+          
+  
+  
+  工具与实践
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-nav__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Joey × 小爪 Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    方法论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    方法论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2-manager-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2 管理模式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinator-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    都知角色定位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任务委派指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-budget-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context 预算指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handoff-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handoff 交接模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historical-fiction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    历史演义叙事方法论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../six-hats-v2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    六顶帽子 v2.1（4 帽 + 都知）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptfa-takeaways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 报告 + 心得
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 论文精读底稿
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 论文精读底稿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 论文元信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-de-bono" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 六顶帽子定义（基本沿用 De Bono 原版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Agent 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 流程：并行 + 时间触发 + 自我抑制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-baselinefacilitation-model-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Baseline：Facilitation Model 0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 评测指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-section-421" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 结果（Section 4.2.1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-section-422-constructive-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 哪些帽子真的起作用了（Section 4.2.2 "Constructive Patterns"）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 局限性与失败模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 局限性与失败模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-phase-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Phase Management 完全失控（最严重）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-inconsistent-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 时机不一致（Inconsistent Timing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 隐含失败模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 关于"红帽（情绪）这种难做的帽子"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 对照我们的「4 帽 + 都知」方案
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 对照我们的「4 帽 + 都知」方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 共识点（他们也这么做）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 差异点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-5-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 我们能学到什么（5-8 条具体可落地启示）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 我们能学到什么（5-8 条具体可落地启示）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 1：必须把"流程控制"和"质量裁判"拆开——都知不该兼任 judge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-phase-state-machine-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 2：必须有一个真正的 phase state machine，不能只靠 prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-self-veto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 3：每个帽子要有"是否该发言"的 self-veto，但需要外部仲裁兜底
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 4：红帽虽被我们删了，但它的"追问情绪/价值观"功能值得保留
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tool-use-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 5：白帽要有 tool use（事实查询），不能只靠 LLM 内部知识
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-trace-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 6：必须做 trace + 自动复盘，不能像 PTFA 那样靠用户问卷才发现失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#730s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 7：30s 定时触发太机械——用"事件驱动 + 节奏限速"代替
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 8：评测必须设计客观 metric，问卷只是补充
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 是否值得引入 / 如何借鉴（最终建议）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：能不能信？
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-personality-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM 性格研究综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-hallucination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 幻觉与多 agent 编排
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑录
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    踩坑录
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lessons/soldier-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工兵陷阱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具与实践
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具与实践
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/chromium-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chromium 审计流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/hermes-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/claw-code-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    claw-code 学习报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小爪工作协议
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 论文元信息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 核心方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 核心方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-de-bono" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 六顶帽子定义（基本沿用 De Bono 原版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Agent 架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 流程：并行 + 时间触发 + 自我抑制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-baselinefacilitation-model-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Baseline：Facilitation Model 0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 实验结果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 实验结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 评测指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-section-421" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 结果（Section 4.2.1）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-section-422-constructive-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 哪些帽子真的起作用了（Section 4.2.2 "Constructive Patterns"）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 局限性与失败模式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 局限性与失败模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-phase-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Phase Management 完全失控（最严重）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-inconsistent-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 时机不一致（Inconsistent Timing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 隐含失败模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 关于"红帽（情绪）这种难做的帽子"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 对照我们的「4 帽 + 都知」方案
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 对照我们的「4 帽 + 都知」方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 共识点（他们也这么做）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 差异点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-5-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 我们能学到什么（5-8 条具体可落地启示）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 我们能学到什么（5-8 条具体可落地启示）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 1：必须把"流程控制"和"质量裁判"拆开——都知不该兼任 judge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-phase-state-machine-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 2：必须有一个真正的 phase state machine，不能只靠 prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-self-veto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 3：每个帽子要有"是否该发言"的 self-veto，但需要外部仲裁兜底
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 4：红帽虽被我们删了，但它的"追问情绪/价值观"功能值得保留
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-tool-use-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 5：白帽要有 tool use（事实查询），不能只靠 LLM 内部知识
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-trace-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 6：必须做 trace + 自动复盘，不能像 PTFA 那样靠用户问卷才发现失败
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#730s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 7：30s 定时触发太机械——用"事件驱动 + 节奏限速"代替
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 启示 8：评测必须设计客观 metric，问卷只是补充
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 是否值得引入 / 如何借鉴（最终建议）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：能不能信？
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ptfa">PTFA 精读报告</h1>
+<blockquote>
+<p>精读日期：2026-05-02
+精读人：小爪 (planner subagent)
+目的：搞清楚 PTFA 怎么用 LLM + 六顶思考帽做 facilitator，对照「4 帽 + 都知」班子能学到什么。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 论文元信息</h2>
+<ul>
+<li><strong>标题</strong>：PTFA: An LLM-based Agent that Facilitates Online Consensus Building through Parallel Thinking</li>
+<li>v1 标题略不同：<em>Facilitating Automated Online Consensus Building through Parallel Thinking</em></li>
+<li><strong>作者</strong>：Wen Gu, Zhaoxing Li, Jan Buermann, Jim Dilkes, Dimitris Michailidis, Shinobu Hasegawa, Vahid Yazdanpanah, Sebastian Stein</li>
+<li><strong>机构</strong>：Nagoya Institute of Technology / University of Southampton / University of Amsterdam / Japan Advanced Institute of Science and Technology (JAIST)</li>
+<li><strong>arXiv</strong>：<a href="https://arxiv.org/abs/2503.12499">2503.12499</a>（v1 = 2025-03-16；v2 = 2025-10-22）</li>
+<li><strong>HTML 全文</strong>：<a href="https://arxiv.org/html/2503.12499v2">https://arxiv.org/html/2503.12499v2</a></li>
+<li><strong>方向</strong>：cs.HC / cs.AI（Human-Computer Interaction）</li>
+<li><strong>资助</strong>：JST CREST、JSPS KAKENHI、UK EPSRC Turing AI Fellowship</li>
+<li><strong>状态</strong>：Pilot user study，规模较小（48 人 / 16 组 / 32 场），未与多 baseline 做大规模 benchmark</li>
+</ul>
+<hr />
+<h2 id="2">2. 核心方法</h2>
+<h3 id="21-de-bono">2.1 六顶帽子定义（基本沿用 De Bono 原版）</h3>
+<p>PTFA <strong>没有改动 De Bono 的六顶帽子</strong>，只是把每顶帽子映射成一个独立的 LLM agent（OpenAI Assistant），各自带专属系统 prompt：</p>
+<table>
+<thead>
+<tr>
+<th>帽子</th>
+<th>角色</th>
+<th>论文原文 situational prompt 示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>白帽</strong>（Facts &amp; Information）</td>
+<td>客观事实、数据，不做解释</td>
+<td>"Could you clarify the exact figures or facts related to this issue? Here's what we know so far: [insert relevant data]."</td>
+</tr>
+<tr>
+<td><strong>红帽</strong>（Emotions &amp; Intuition）</td>
+<td>感受、直觉，无需理由</td>
+<td>"This feels like an emotional moment. How are we feeling about this issue right now?"</td>
+</tr>
+<tr>
+<td><strong>黑帽</strong>（Critical Thinking &amp; Risk）</td>
+<td>风险、弱点、隐患</td>
+<td>"Have we considered the potential downsides? Here's a risk we might be overlooking: [insert risk]."</td>
+</tr>
+<tr>
+<td><strong>黄帽</strong>（Optimism &amp; Benefits）</td>
+<td>益处、机会、积极面</td>
+<td>"Looking at the bright side, this idea offers some exciting opportunities we shouldn't overlook."</td>
+</tr>
+<tr>
+<td><strong>绿帽</strong>（Creativity &amp; Alternatives）</td>
+<td>新点子、替代方案</td>
+<td>"What if we approached this from a different angle? Here's an idea to consider: [insert new idea]."</td>
+</tr>
+<tr>
+<td><strong>蓝帽</strong>（Process &amp; Control）</td>
+<td>主持流程、控制结构、保证全部视角被覆盖</td>
+<td>"It seems like we're getting off track. Maybe we should focus on this key point: [insert key point]."</td>
+</tr>
+</tbody>
+</table>
+<p>引用：Section 3 "Methodology / Parallel Thinking-based Facilitation Agent Implementation" 项目符号列表。</p>
+<h3 id="22-agent">2.2 Agent 架构</h3>
+<ul>
+<li><strong>6 个 hat-agent</strong>，每个一个独立 OpenAI Assistant（论文未指定具体 GPT 型号，仅称 "OpenAI's ChatGPT assistant API"）。</li>
+<li><strong>没有独立的 facilitator / judge / aggregator agent</strong>——蓝帽身兼"流程控制"，但它仍只是 6 个并行 agent 之一。</li>
+<li><strong>没有人类专家或第二个 LLM 评审</strong>。</li>
+<li>平台：基于 Discourse 论坛 + WebSocket + PostgreSQL，6 个 hat 当作"虚拟用户"在论坛里发帖。</li>
+<li><strong>不是 6 个 agent 互相辩论</strong>：参与对象是 <strong>3 个真人用户 + 6 个 hat-agent</strong>，agent 是真人讨论的 facilitator，不是产生最终决策的辩手。</li>
+</ul>
+<h3 id="23">2.3 流程：并行 + 时间触发 + 自我抑制</h3>
+<p>不是回合制，也没有明确的"先白帽再黑帽"串行 schedule。逻辑是：</p>
+<ol>
+<li><strong>30 秒一个 tick</strong>，系统在每个 tick 上调用 6 个 hat（并行）让它们看当前讨论上下文。</li>
+<li>每个 hat 自己判断"现在该不该插话"——如果不需要，输出字符串 <code>'Good'</code>，平台把它过滤掉，不显示给真人。</li>
+<li>如果觉得该插话，就直接生成 facilitator 消息，发到 Discourse 帖子里。</li>
+<li>如果检测到讨论沉寂或多样性不足，强制提示再次 engage。</li>
+</ol>
+<p>引用：Section 3 末尾 ("To minimize unnecessary interruptions ... outputs 'Good' ... Timing intervals are set ... 30-second intervals")。</p>
+<p><strong>没有投票、没有辩论、没有 best-of-N、没有显式 phase 切换器</strong>。所谓"divergent → convergent"两阶段只在 prompt 里告诉 LLM "前期发散后期收敛"，没有真正的状态机来切换。这正是后面失败模式的根源。</p>
+<h3 id="24-baselinefacilitation-model-0">2.4 Baseline：Facilitation Model 0</h3>
+<p>非常简陋的"定时三句话"baseline（Section 4.1）：
+- t=0: "请大家开始产生想法。"
+- t=10min: "你们已经讨论了 10 分钟，是时候重新审视已有想法。"
+- t=17min: "还有 3 分钟，请尽快做决定。"</p>
+<p>也就是说 baseline 是<strong>纯定时模板</strong>，PTFA 是<strong>LLM 动态发言</strong>。</p>
+<hr />
+<h2 id="3">3. 实验结果</h2>
+<h3 id="31">3.1 设置</h3>
+<ul>
+<li>48 名参与者（年龄 18-34 为主，性别均衡，68.8% 英语流利/母语）</li>
+<li>16 个讨论组 × 3 人/组 × 2 场讨论 = <strong>32 场讨论</strong></li>
+<li>每场 20 分钟</li>
+<li>两个轻量话题：(0) "决定一起做什么活动" (1) "决定一起看什么电影"</li>
+<li>两个 facilitation model（PTFA vs 模板 baseline）交叉</li>
+<li>数据集：1,669 条帖子 / 16,656 字，其中 facilitator 217 条 / 3,459 字</li>
+</ul>
+<h3 id="32">3.2 评测指标</h3>
+<p>只有<strong>用户问卷 + 转写定性分析</strong>，没有任何客观 metric（无准确率、无任务完成率、无共识质量自动评分）：</p>
+<ol>
+<li>"How would you rate the user experience of the platform?"（7 级 Likert）</li>
+<li>"How would you rate the extent to which the facilitator helped consensus decision-making?"（7 级 Likert）</li>
+<li>"Do you agree with the consensus reached in this discussion?"（7 级 Likert）</li>
+</ol>
+<h3 id="33-section-421">3.3 结果（Section 4.2.1）</h3>
+<ul>
+<li><strong>平台体验</strong>：两种 facilitation model 整体都偏正面。</li>
+<li><strong>是否帮助达成共识</strong>：PTFA "略高于 50% 偏正面"，baseline "略低于 50%"——PTFA <strong>小幅胜出</strong>，但<strong>评价"mixed"</strong>，没有显著优势。</li>
+<li><strong>是否同意最终共识</strong>：PTFA 反而<strong>略微拖低</strong>了共识同意度（因为 LLM 不会切阶段，破坏了已经达成的共识，见下）。</li>
+</ul>
+<blockquote>
+<p>论文原文："the rating of both is mixed." (Section 4.2.1)</p>
+</blockquote>
+<p><strong>没有显著的、量化的提升数字</strong>。这篇论文本质上是 pilot study + 定性分析 + 数据集构建，不是 SOTA-claiming 的 benchmark 论文。</p>
+<h3 id="34-section-422-constructive-patterns">3.4 哪些帽子真的起作用了（Section 4.2.2 "Constructive Patterns"）</h3>
+<p>作者亲自标注，列出 4 类 PTFA 真的有用的贡献：
+- <strong>红帽</strong>：把人类参与者"我觉得还行"这种浅层意见<strong>外化、追问</strong>，让真人产生更深的情感反应——红帽<strong>真的帮上忙</strong>。
+- <strong>黄帽 / 黑帽</strong>：对每个候选方案给出深度优劣分析，比真人自己讨论的颗粒度更细。
+- <strong>白帽</strong>：被问到"这电影多长"这种事实问题时给准答案；偶尔有训练数据 cutoff 导致的过时信息，但<strong>幻觉极少</strong>。
+- <strong>绿帽</strong>：扩展或合成参与者的提议，常被采纳为最终共识。但有时合并得太离谱，被参与者吐槽"加了太多东西"。</p>
+<hr />
+<h2 id="4">4. 局限性与失败模式</h2>
+<p>论文 Section 4.2.3 + 4.3 自陈了两大类失败：</p>
+<h3 id="41-phase-management">4.1 Phase Management 完全失控（最严重）</h3>
+<blockquote>
+<p>"The LLM is prompted to facilitate a divergent first discussion stage ... followed by a convergent second stage. <strong>In practice, the facilitator stayed in the first stage throughout</strong> ..."</p>
+</blockquote>
+<ul>
+<li>绿帽 + 蓝帽<strong>到讨论结束前一直在让真人发更多想法</strong>，哪怕真人已经达成共识。</li>
+<li><strong>真实事故</strong>：一组讨论已达成共识，PTFA 又抛出新建议，把参与者意见打散，剩余时间不够再次 unanimous，最终共识破裂。</li>
+<li>根因：<strong>没有真正的 phase state machine</strong>，只在 prompt 里写"前期发散后期收敛"，LLM 自己感知不到时间剩余 / 参与者已经收敛。</li>
+</ul>
+<h3 id="42-inconsistent-timing">4.2 时机不一致（Inconsistent Timing）</h3>
+<ul>
+<li>有时<strong>8 分钟才发第一条</strong>，开口还说"我们开始吧"——明显已落后。</li>
+<li>有时<strong>忽视真人直接提问</strong>。</li>
+<li>有时<strong>每条参与者发言后都插话</strong>，不给人留思考空间。</li>
+</ul>
+<h3 id="43">4.3 隐含失败模式</h3>
+<ul>
+<li><strong>没有外部裁判</strong>：没有任何"meta-judge"判断 hat 输出的质量，全靠每个 hat agent 的自我抑制 (<code>'Good'</code> 过滤)。</li>
+<li><strong>没有阶段切换器</strong>：参见 4.1。</li>
+<li><strong>没有声音平衡</strong>：6 个 hat 之间谁该发言、发多频，靠它们各自自由竞争——绿/蓝帽天然话痨，所以淹没了其他帽子。</li>
+</ul>
+<h3 id="44">4.4 关于"红帽（情绪）这种难做的帽子"</h3>
+<p>PTFA 的红帽<strong>意外地是亮点</strong>之一。论文给的解释是：因为真人通常只说"我觉得还行 / 不太喜欢"这种 0 信息量的情绪，红帽通过<strong>focused questioning</strong>（针对性追问）反而把人的真实情绪挖出来。
+但同时论文也指出失败案例：红帽<strong>对一条非情绪化的中性发言强加情绪解读</strong>（Figure 7b），让人觉得突兀（Section 4.2.3 末尾的 problematic example）。</p>
+<p><strong>关键洞察</strong>：PTFA 的红帽不是"自己表达情绪"，而是"逼真人表达情绪"。这绕过了"LLM 假装有情绪很尴尬"的死结。</p>
+<hr />
+<h2 id="5-4">5. 对照我们的「4 帽 + 都知」方案</h2>
+<p>我们当前方案：白 / 黄 / 黑 / 绿 + 都知（蓝帽 facilitator），删掉了红 / 橙 / 紫。</p>
+<h3 id="51">5.1 共识点（他们也这么做）</h3>
+<ol>
+<li><strong>每顶帽子 = 一个独立 prompt 化的 LLM agent</strong>，靠 system prompt 而非微调。</li>
+<li><strong>沿用 De Bono 原版定义</strong>，不重新发明帽子语义。</li>
+<li><strong>蓝帽 = 流程控制 / 主持人</strong>——和我们的"都知"职责高度重合。</li>
+<li><strong>不让 6 个 agent 之间互相辩论</strong>，而是把帽子当成<strong>多视角分析工具</strong>。</li>
+</ol>
+<h3 id="52">5.2 差异点</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>PTFA</th>
+<th>我们的 4 帽 + 都知</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帽子数量</td>
+<td>6（含红/绿/黄/白/黑/蓝）</td>
+<td>4 + 都知（去掉红/橙/紫）</td>
+</tr>
+<tr>
+<td>用户角色</td>
+<td><strong>真人参与，agent 是 facilitator</strong></td>
+<td>我们目标是<strong>全 agent 决策思辨</strong>（无真人参与，至少在 inner loop 里）</td>
+</tr>
+<tr>
+<td>输出对象</td>
+<td>真人之间达成共识</td>
+<td>给主 agent / 用户一个结构化结论</td>
+</tr>
+<tr>
+<td>触发机制</td>
+<td>30s tick + <code>'Good'</code> 自抑制</td>
+<td>待设计（建议见下）</td>
+</tr>
+<tr>
+<td>阶段管理</td>
+<td><strong>没有显式 phase state machine</strong>——这是已知严重缺陷</td>
+<td>我们应该上</td>
+</tr>
+<tr>
+<td>评审/判官</td>
+<td>无独立 judge</td>
+<td>都知是否兼任 judge 待定</td>
+</tr>
+<tr>
+<td>失败检测</td>
+<td>完全靠人类问卷事后发现</td>
+<td>可以加自动 trace 复盘</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-5-8">5.3 我们能学到什么（5-8 条具体可落地启示）</h3>
+<p>按可落地优先级排序：</p>
+<h4 id="1-judge">⭐ 启示 1：必须把"流程控制"和"质量裁判"拆开——都知不该兼任 judge</h4>
+<p>PTFA 让蓝帽<strong>同时做主持人 + 隐式裁判</strong>，结果蓝帽和绿帽一起把真人逼到讨论尾声还在发新想法，整个班子没人按下"够了，进入收敛"按钮。
+<strong>落地</strong>：把都知拆成两个角色 / 两个 prompt：
+- <strong>都知-facilitator</strong>：负责 turn-taking、avoid silence、avoid over-talking。
+- <strong>都知-judge</strong>：独立判断"是否进入收敛阶段"、"最终结论是否成熟"，<strong>有权终止讨论</strong>。
+两个角色可以同 LLM 不同 prompt，关键是<strong>把决策权和主持权分离</strong>。</p>
+<h4 id="2-phase-state-machine-prompt">⭐ 启示 2：必须有一个真正的 phase state machine，不能只靠 prompt</h4>
+<p>PTFA 在 prompt 里写"先发散后收敛"，LLM 完全 ignore。
+<strong>落地</strong>：硬编码两到三个阶段：<code>diverge → critique → converge</code>，每阶段可允许的帽子集合显式限定（如收敛阶段绿帽 mute）。状态切换由都知-judge 在每轮结束时显式宣布。</p>
+<h4 id="3-self-veto">⭐ 启示 3：每个帽子要有"是否该发言"的 self-veto，但需要外部仲裁兜底</h4>
+<p>PTFA 的 <code>'Good'</code> 自我抑制是个聪明设计——值得抄。但只靠 self-veto 会出现"绿帽永远觉得自己该说话"的失衡。
+<strong>落地</strong>：
+- 每个帽子先输出 <code>should_speak: bool + content</code>。
+- 都知-facilitator 在所有帽子提交意向后，从中<strong>挑选最多 N 顶</strong>实际发言，避免每轮 4 顶帽子全炸。</p>
+<h4 id="4_1">⭐ 启示 4：红帽虽被我们删了，但它的"追问情绪/价值观"功能值得保留</h4>
+<p>PTFA 红帽真正起作用的方式不是"AI 表达感受"（那很尬），而是<strong>逼对方说出 underlying preference</strong>。
+<strong>落地</strong>：在我们的 4 帽里给绿帽或都知加一个能力：当某个 agent 给出"我觉得 A 比 B 好"但没有理由时，<strong>强制追问偏好的来源</strong>。本质上是把红帽的"functional core"（追问 underlying value）保留，去掉"AI 表演情绪"的尬部分。</p>
+<h4 id="5-tool-use-llm">⭐ 启示 5：白帽要有 tool use（事实查询），不能只靠 LLM 内部知识</h4>
+<p>PTFA 白帽的失败案例是"训练截止日期"导致信息过时（一个剧目"将开演"实际已上演）。
+<strong>落地</strong>：白帽必须显式接 web_search / 文档检索工具，而不是凭 LLM 记忆答事实。同时要在输出里<strong>带 source URL</strong> 让黑帽可以核查。</p>
+<h4 id="6-trace-ptfa">⭐ 启示 6：必须做 trace + 自动复盘，不能像 PTFA 那样靠用户问卷才发现失败</h4>
+<p>PTFA 的失败案例（"讨论被新建议打散"）是事后看转写才发现的，损失已经造成。
+<strong>落地</strong>：每场讨论结束后，让一个独立 reviewer agent 跑一次 post-mortem，专门检测：
+- 是否在共识形成后又被打散？
+- 是否有帽子 dominate（发言占比 &gt; X%）？
+- 是否存在直接被忽视的真人/agent 提问？
+把这些当成 hard quality gate。</p>
+<h4 id="730s">⭐ 启示 7：30s 定时触发太机械——用"事件驱动 + 节奏限速"代替</h4>
+<p>PTFA 30s 一 tick 导致两种病：要么每条发言后都插话，要么 8 分钟才出现。
+<strong>落地</strong>：触发条件 = "新输入 + 上次同 hat 发言距今 ≥ T"。每个 hat 有独立 cooldown，避免话痨帽子刷屏，也不让安静帽子彻底沉睡。</p>
+<h4 id="8-metric">⭐ 启示 8：评测必须设计客观 metric，问卷只是补充</h4>
+<p>PTFA 只有 Likert 问卷，结果"mixed"，无法量化改进。
+<strong>落地</strong>：我们至少应该有：
+- 共识达成时间
+- 共识稳定性（达成后是否被打散）
+- 每个帽子的有效贡献率（被采纳进最终结论的发言占该帽子总发言比例）
+- 直接提问被回应率
+这些都是可以从 trace 自动算的硬指标。</p>
+<hr />
+<h2 id="6">6. 是否值得引入 / 如何借鉴（最终建议）</h2>
+<p><strong>结论：值得参考，但不要直接照搬。</strong></p>
+<p>PTFA 在工程上是个<strong>最小可行版本</strong>：把 6 个 hat-agent 接到 OpenAI API + Discourse + 30s tick，就完事了。它的价值在于<strong>首次在真人讨论中跑通六顶帽子的多 agent facilitator</strong>，并诚实暴露了一堆失败模式。</p>
+<p><strong>对我们的 4 帽 + 都知班子</strong>：</p>
+<ul>
+<li>✅ <strong>可以借鉴的设计</strong>：六顶帽子的角色定义、每帽子独立 prompt、<code>'Good'</code> self-veto 机制。</li>
+<li>❌ <strong>不要复刻</strong>的是：30s 定时触发、单 facilitator 兼任判官、prompt-only 的 phase 控制、缺少客观 metric。</li>
+<li>🔧 <strong>必须升级</strong>的是：phase state machine、都知拆成 facilitator + judge、白帽接工具、trace 自动复盘、客观 metric 设计。</li>
+</ul>
+<p><strong>最有价值的单条洞察</strong>：PTFA 失败的根因不是"LLM 不够强"，而是"<strong>没有一个有权强制结束讨论的 judge 角色</strong>"。这正好是我们设计「都知」时必须想清楚的：都知到底有没有"终止权"？如果没有，我们会重蹈 PTFA 的覆辙。</p>
+<hr />
+<h2 id="_1">附录：能不能信？</h2>
+<ul>
+<li>论文原文 100% 通过 arxiv.org/html/2503.12499v2 抓取，全文已读完。</li>
+<li>无未能获取段落。</li>
+<li>引用的 Section 编号、prompt 例句、数字（48/16/3/32/30s/20min/1669/16656/3459）均直接来自原文。</li>
+<li>v1 标题为 <em>Facilitating Automated Online Consensus Building through Parallel Thinking</em>，v2 (2025-10-22) 才改成 PTFA 这个标题。Joey 说的 "PTFA" 命名是 v2。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

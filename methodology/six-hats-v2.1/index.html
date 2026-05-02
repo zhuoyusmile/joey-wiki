@@ -1,0 +1,2342 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="实战经验、方法论与踩坑录">
+      
+      
+      
+        <link rel="canonical" href="https://zhuoyusmile.github.io/joey-wiki/methodology/six-hats-v2.1/">
+      
+      
+        <link rel="prev" href="../historical-fiction/">
+      
+      
+        <link rel="next" href="../ptfa-takeaways/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>六顶帽子 v2.1（4 帽 + 都知） - Joey × 小爪 Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-v21" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-header__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joey × 小爪 Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              六顶帽子 v2.1（4 帽 + 都知）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../m2-manager-pattern/" class="md-tabs__link">
+          
+  
+  
+  方法论
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lessons/soldier-trap/" class="md-tabs__link">
+          
+  
+  
+  踩坑录
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practices/chromium-audit/" class="md-tabs__link">
+          
+  
+  
+  工具与实践
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Joey × 小爪 Wiki" class="md-nav__button md-logo" aria-label="Joey × 小爪 Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Joey × 小爪 Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zhuoyusmile/joey-wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zhuoyusmile/joey-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    方法论
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    方法论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m2-manager-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M2 管理模式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinator-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    都知角色定位
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任务委派指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-budget-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context 预算指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../handoff-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handoff 交接模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historical-fiction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    历史演义叙事方法论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    六顶帽子 v2.1（4 帽 + 都知）
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    六顶帽子 v2.1（4 帽 + 都知）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 升级摘要（一页纸）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 升级摘要（一页纸）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v20-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.0 → v2.1 主要变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话表达
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 角色定义（v2.1）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 角色定义（v2.1）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-4-v20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 4 顶帽子（保留 v2.0 设计）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 都知拆成两个角色（v2.1 新增）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 都知拆成两个角色（v2.1 新增）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-facilitator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        都知-facilitator（调度官）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        都知-judge（拍板人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 红帽的归宿
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-phase-state-machinev21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Phase State Machine（v2.1 核心新增）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Phase State Machine（v2.1 核心新增）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 四阶段硬切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 实现要求（铁律）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-self-veto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 发言机制（self-veto + 都知仲裁）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 发言机制（self-veto + 都知仲裁）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-self-veto-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 self-veto（抄 PTFA）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 都知仲裁（v2.1 新增）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 工具与输出规范
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 工具与输出规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 白帽必须接工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 黄/黑/绿无强制工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 都知-judge 只看输出，不再调用其他帽子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-post-mortem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Post-mortem 自动复盘
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-metricv21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 客观 Metric（v2.1 新增）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 模型分配（基于实测数据）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 模型分配（基于实测数据）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 决策依据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 班子表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 红帽不分配模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-v20-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. v2.0 → v2.1 迁移清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-v21-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 仍未解决的问题（v2.1 backlog）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 配套素材索引
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v21-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：v2.1 与 PTFA 的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptfa-takeaways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 报告 + 心得
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ptfa-paper-deep-read/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PTFA 论文精读底稿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-personality-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM 性格研究综述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-hallucination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 幻觉与多 agent 编排
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑录
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    踩坑录
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lessons/soldier-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工兵陷阱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具与实践
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具与实践
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/chromium-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chromium 审计流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/hermes-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hermes Agent 研究
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/claw-code-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    claw-code 学习报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practices/protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小爪工作协议
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 升级摘要（一页纸）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 升级摘要（一页纸）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v20-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2.0 → v2.1 主要变化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一句话表达
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 角色定义（v2.1）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 角色定义（v2.1）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-4-v20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 4 顶帽子（保留 v2.0 设计）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 都知拆成两个角色（v2.1 新增）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 都知拆成两个角色（v2.1 新增）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-facilitator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        都知-facilitator（调度官）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        都知-judge（拍板人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 红帽的归宿
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-phase-state-machinev21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Phase State Machine（v2.1 核心新增）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Phase State Machine（v2.1 核心新增）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 四阶段硬切换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 实现要求（铁律）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-self-veto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 发言机制（self-veto + 都知仲裁）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 发言机制（self-veto + 都知仲裁）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-self-veto-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 self-veto（抄 PTFA）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 都知仲裁（v2.1 新增）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 工具与输出规范
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 工具与输出规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 白帽必须接工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 黄/黑/绿无强制工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-judge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 都知-judge 只看输出，不再调用其他帽子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-post-mortem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Post-mortem 自动复盘
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-metricv21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 客观 Metric（v2.1 新增）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 模型分配（基于实测数据）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 模型分配（基于实测数据）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 决策依据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 班子表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 红帽不分配模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-v20-v21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. v2.0 → v2.1 迁移清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-v21-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 仍未解决的问题（v2.1 backlog）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 配套素材索引
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v21-ptfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：v2.1 与 PTFA 的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="4-v21">4 帽 + 都知 v2.1 升级方案</h1>
+<blockquote>
+<p>版本：v2.1（草案）
+日期：2026-05-02
+作者：小爪
+上一版：v2.0（2026-04-09 飞书 docx，4 帽 + 都知，门下 approve）
+升级依据：
+- PTFA 论文精读（<a href="../ptfa-paper-deep-read/">精读底稿</a> / <a href="../ptfa-takeaways/">报告 + 心得</a>）
+- 9 模型自评互评测试（2026-05-02 飞书话题）
+- LLM 性格研究综述（<a href="../llm-personality-research/"><code>llm-personality-research.md</code></a>）</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 升级摘要（一页纸）</h2>
+<h3 id="v20-v21">v2.0 → v2.1 主要变化</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>v2.0</th>
+<th>v2.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>角色总数</td>
+<td>4 帽 + 都知（5）</td>
+<td>4 帽 + 都知-facilitator + 都知-judge（6）</td>
+</tr>
+<tr>
+<td>阶段控制</td>
+<td>prompt 提示</td>
+<td><strong>硬编码 phase state machine</strong>（4 阶段）</td>
+</tr>
+<tr>
+<td>帽子发言权</td>
+<td>都知调度</td>
+<td><strong>每帽 self-veto + 都知二次仲裁</strong>（每轮 ≤ N 顶发言）</td>
+</tr>
+<tr>
+<td>红帽 functional core</td>
+<td>删除（嵌入黄/黑）</td>
+<td><strong>追问 underlying preference 能力</strong>塞进都知-facilitator</td>
+</tr>
+<tr>
+<td>白帽工具</td>
+<td>凭 LLM 知识</td>
+<td><strong>必须接 web_search</strong>，输出带 source URL</td>
+</tr>
+<tr>
+<td>评测</td>
+<td>凭主观 / 没硬指标</td>
+<td><strong>5 个客观 metric</strong> + 独立 reviewer agent post-mortem</td>
+</tr>
+<tr>
+<td>模型分配</td>
+<td>凭直觉</td>
+<td><strong>基于 9 模型自评互评 + SycEval 数据</strong>指定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">一句话表达</h3>
+<blockquote>
+<p>v2.1 = v2.0 + <strong>决策权与主持权分离</strong> + <strong>阶段硬切换</strong> + <strong>白帽接工具</strong> + <strong>post-mortem 自动复盘</strong> + <strong>基于实测数据的模型分配</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="1-v21">1. 角色定义（v2.1）</h2>
+<h3 id="11-4-v20">1.1 4 顶帽子（保留 v2.0 设计）</h3>
+<table>
+<thead>
+<tr>
+<th>帽</th>
+<th>职责</th>
+<th>主力模型</th>
+<th>备选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>白帽</strong></td>
+<td>客观事实、数据、信息缺口；<strong>必须接 web_search 工具</strong>；输出带 source URL</td>
+<td>Claude Opus 4.6-1m（长 context = 装事实的桶）</td>
+<td>Qwen / 混元 / Gemini 3.1 Pro</td>
+</tr>
+<tr>
+<td><strong>黄帽</strong></td>
+<td>价值、收益、可行性；正向论证</td>
+<td>Claude Sonnet 4.6（互评 5 票黄帽）</td>
+<td>GPT-5.4</td>
+</tr>
+<tr>
+<td><strong>黑帽</strong></td>
+<td>风险、批判、伦理否决（v2.0 已合并橙帽）</td>
+<td>Claude Opus 4.7（互评 5 票黑帽，自他双认）</td>
+<td>Sonnet 4.6</td>
+</tr>
+<tr>
+<td><strong>绿帽</strong></td>
+<td>创意、替代方案、远距离联想；保留<strong>追问 underlying preference</strong>职能（兼任）</td>
+<td>Gemini 3.1 Pro（自他共识绿帽）</td>
+<td>DeepSeek / GPT-5.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-v21">1.2 都知拆成两个角色（v2.1 新增）</h3>
+<h4 id="-facilitator">都知-facilitator（调度官）</h4>
+<p><strong>职责</strong>：
+- Turn-taking：决定每轮哪几顶帽子真的发言（基于 self-veto + priority）
+- 限制每轮发言上限（默认 N=2，避免 4 帽炸场）
+- <strong>追问 underlying preference</strong>（红帽 functional core 的归宿）
+- 检测沉默 / 偏题 / 单帽 dominate 并干预
+- <strong>没有「终止讨论」权限</strong></p>
+<p><strong>主力模型</strong>：GPT-5.5（自评 + B 都说蓝帽，调度切换强）
+<strong>备选</strong>：Claude Opus 4.7</p>
+<h4 id="-judge">都知-judge（拍板人）</h4>
+<p><strong>职责</strong>：
+- 独立判断"是否进入下一阶段"
+- 独立判断"最终结论是否成熟"
+- <strong>有权强制终止讨论</strong>
+- 不参与主持，只在每阶段末被调用 1 次</p>
+<p><strong>主力模型</strong>：Claude Opus 4.7（黑帽稳、批判力强、不易被讨好）
+<strong>备选</strong>：Claude Opus 4.6-1m</p>
+<p><strong>铁律</strong>：facilitator 和 judge <strong>必须不同 prompt</strong>（建议不同模型实例），决策权与主持权严格分离。</p>
+<h3 id="13">1.3 红帽的归宿</h3>
+<p>v2.0 删红帽是对的（9 模型自评互评 9/9 一致认为最不适合红帽），但红帽的 <strong>functional core</strong>（追问情感 / 偏好来源）有用，归并到：
+- <strong>都知-facilitator</strong>：开场 + 阶段切换时主动追问"你为什么这么想？这背后的偏好是什么？"
+- <strong>绿帽</strong>：当某 agent 给出"我觉得 A 比 B 好"但没理由时，<strong>强制反问</strong></p>
+<hr />
+<h2 id="2-phase-state-machinev21">2. Phase State Machine（v2.1 核心新增）</h2>
+<h3 id="21">2.1 四阶段硬切换</h3>
+<div class="highlight"><pre><span></span><code>[diverge] → [critique] → [converge] → [finalize]
+   ↑           ↑            ↑            ↑
+  绿/白      黑/白        黄/黑/judge   judge
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>允许发言的帽子</th>
+<th>主导帽子</th>
+<th>切换触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>diverge</strong>（发散）</td>
+<td>白 + 绿 + 都知-fac</td>
+<td>绿帽</td>
+<td>judge 判断"已收集足够备选方案"</td>
+</tr>
+<tr>
+<td><strong>critique</strong>（批判）</td>
+<td>黑 + 白 + 都知-fac</td>
+<td>黑帽</td>
+<td>judge 判断"风险已被充分评估"</td>
+</tr>
+<tr>
+<td><strong>converge</strong>（收敛）</td>
+<td>黄 + 黑 + 都知-fac</td>
+<td>黄帽</td>
+<td>judge 判断"备选已收窄到 ≤2 个"</td>
+</tr>
+<tr>
+<td><strong>finalize</strong>（拍板）</td>
+<td>都知-judge only</td>
+<td>judge</td>
+<td>judge 输出最终结论或 escalate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22">2.2 实现要求（铁律）</h3>
+<ol>
+<li><strong>不靠 prompt 控阶段</strong>：不能在系统 prompt 里写"先发散后收敛"——LLM 会 ignore（PTFA 实证）</li>
+<li><strong>每阶段 = 独立的 LLM 调用 / 独立的 task</strong>：不是一个 prompt 里走完</li>
+<li><strong>绿帽在 critique / converge 阶段必须 mute</strong>：发散 agent 在收敛阶段是噪声源</li>
+<li><strong>judge 只在阶段末调用 1 次</strong>：不是每轮调用，避免误判</li>
+<li><strong>judge 可以 escalate 给 Joey</strong>：当多次循环 diverge → critique 还无法收敛时</li>
+</ol>
+<hr />
+<h2 id="3-self-veto">3. 发言机制（self-veto + 都知仲裁）</h2>
+<h3 id="31-self-veto-ptfa">3.1 self-veto（抄 PTFA）</h3>
+<p>每个被允许发言的帽子在每轮先输出：
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;should_speak&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0-10</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w">  </span><span class="c1">// 仅 should_speak=true 时填</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>should_speak: false</code> 即过滤，不进入下一步。</p>
+<h3 id="32-v21">3.2 都知仲裁（v2.1 新增）</h3>
+<p>都知-facilitator 收到所有帽子的意向后：
+1. 过滤掉 <code>should_speak: false</code> 的
+2. 按 priority 降序，取前 <strong>N 顶</strong>（默认 N=2，可配置）
+3. 应用 cooldown：上轮发言过的帽子 priority -3
+4. 输出最终发言列表</p>
+<p>这一层避免 PTFA 里"绿/蓝刷屏淹没其他帽子"的问题。</p>
+<hr />
+<h2 id="4">4. 工具与输出规范</h2>
+<h3 id="41">4.1 白帽必须接工具</h3>
+<ul>
+<li><strong>必接</strong>：<code>web_search</code>、文档检索（如有）、<code>memory_search</code></li>
+<li>输出格式必须含：
+  <div class="highlight"><pre><span></span><code>事实陈述 [Source: &lt;URL or memory:path#line&gt;]
+</code></pre></div></li>
+<li>没有 source 的事实陈述 → <strong>黑帽有权直接 reject</strong>，要求白帽补充</li>
+</ul>
+<h3 id="42">4.2 黄/黑/绿无强制工具</h3>
+<p>但建议：
+- 黑帽：可调 <code>web_search</code> 验证白帽事实
+- 绿帽：可调 <code>web_search</code> 找类比 / 案例</p>
+<h3 id="43-judge">4.3 都知-judge 只看输出，不再调用其他帽子</h3>
+<p>judge 的输入 = 当前阶段所有帽子发言的 trace。不允许 judge 自己再去 web_search 或追问，否则相当于又当主持又当判官。</p>
+<hr />
+<h2 id="5-post-mortem">5. Post-mortem 自动复盘</h2>
+<p>每次完整 run 结束后，由独立 <strong>reviewer agent</strong>（建议 Sonnet 4.6 或 GPT-5.5）跑一次 post-mortem，<strong>强制检查 5 项</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>失败定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>共识是否被打散</td>
+<td>converge 阶段已达成的备选在 finalize 前被新提议推翻</td>
+<td>PTFA 真实事故</td>
+</tr>
+<tr>
+<td>2</td>
+<td>帽子 dominance</td>
+<td>任一帽子发言占比 &gt; 40%</td>
+<td>防话痨刷屏</td>
+</tr>
+<tr>
+<td>3</td>
+<td>提问被忽视率</td>
+<td>直接提问无回应数 / 总直接提问数 &gt; 20%</td>
+<td>防 PTFA 那种"忽视真人提问"病</td>
+</tr>
+<tr>
+<td>4</td>
+<td>阶段切换准确率</td>
+<td>judge 切换决定 vs 实际状态（用 trace 反推）一致率</td>
+<td>防误切换</td>
+</tr>
+<tr>
+<td>5</td>
+<td>白帽事实 source 覆盖率</td>
+<td>带 source 的事实陈述 / 总事实陈述 &gt; 80%</td>
+<td>强制工具使用</td>
+</tr>
+</tbody>
+</table>
+<p>任一项 fail → 该 run 标记为「不合格 run」，进入 v2.1 backlog 优化目标。</p>
+<hr />
+<h2 id="6-metricv21">6. 客观 Metric（v2.1 新增）</h2>
+<p>每个 run 自动从 trace 算：</p>
+<ol>
+<li><strong>共识达成时间</strong>：进入 finalize 阶段所用轮数 / 秒数</li>
+<li><strong>共识稳定性</strong>：finalize 后是否被新提议打散（0/1）</li>
+<li><strong>每帽子有效贡献率</strong>：被采纳进最终结论的发言数 / 该帽子总发言数</li>
+<li><strong>直接提问被回应率</strong>：见上 §5 表第 3 项</li>
+<li><strong>阶段切换准确率</strong>：见上 §5 表第 4 项</li>
+</ol>
+<p>这些指标比 Likert 问卷强，可以量化对比 v2.0 vs v2.1 的实际改进。</p>
+<hr />
+<h2 id="7">7. 模型分配（基于实测数据）</h2>
+<h3 id="71">7.1 决策依据</h3>
+<ul>
+<li><strong>9 模型自评互评测试</strong>（2026-05-02）：A·Opus 4.7 → 黑帽（5 票）、B·Opus 4.6-1m → 白帽（5 票）、D·Sonnet 4.6 → 黄帽（5 票）、E·Gemini 3.1 → 绿帽（4 票）</li>
+<li><strong>SycEval 数据</strong>：Claude 系列最坚持立场（适合 judge / 黑帽），Gemini 最易让步（适合 diverge 阶段的发散绿帽）</li>
+<li><strong>Anthropic Claude's Character</strong>：Claude 系列在批判性 + 元认知上有 prior</li>
+</ul>
+<h3 id="72">7.2 班子表</h3>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>主力</th>
+<th>备选</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>白帽</td>
+<td>Opus 4.6-1m</td>
+<td>Qwen / 混元 / Gemini 3.1</td>
+<td>长 context + 实测 5 票</td>
+</tr>
+<tr>
+<td>黄帽</td>
+<td>Sonnet 4.6</td>
+<td>GPT-5.4</td>
+<td>实测 5 票黄 + 表达流畅</td>
+</tr>
+<tr>
+<td>黑帽</td>
+<td>Opus 4.7</td>
+<td>Sonnet 4.6</td>
+<td>实测 5 票黑 + SycEval 最坚持</td>
+</tr>
+<tr>
+<td>绿帽</td>
+<td>Gemini 3.1 Pro</td>
+<td>DeepSeek / GPT-5.5</td>
+<td>自他共识 + SycEval 易让步 = 易发散</td>
+</tr>
+<tr>
+<td>都知-facilitator</td>
+<td>GPT-5.5</td>
+<td>Opus 4.7</td>
+<td>自评 + 互评共识蓝帽</td>
+</tr>
+<tr>
+<td>都知-judge</td>
+<td>Opus 4.7</td>
+<td>Opus 4.6-1m</td>
+<td>SycEval 最坚持 = 不易被绿帽说动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73">7.3 红帽不分配模型</h3>
+<p>红帽 functional core 已嵌入都知-facilitator 和绿帽 prompt，无独立模型实例。</p>
+<hr />
+<h2 id="8-v20-v21">8. v2.0 → v2.1 迁移清单</h2>
+<p>实战中若要从 v2.0 升到 v2.1，按顺序：</p>
+<ul>
+<li>[ ] <strong>A</strong>：把 v2.0「都知」prompt 拆成 facilitator + judge 两份独立 prompt</li>
+<li>[ ] <strong>B</strong>：实现 phase state machine（4 阶段，硬编码切换，不靠 prompt）</li>
+<li>[ ] <strong>C</strong>：每帽子加 self-veto 输出格式（<code>should_speak / priority / content</code>）</li>
+<li>[ ] <strong>D</strong>：白帽 prompt 加「必须接 web_search + 带 source URL」要求；写校验逻辑</li>
+<li>[ ] <strong>E</strong>：把红帽 functional core（追问 underlying preference）加进 facilitator + 绿帽 prompt</li>
+<li>[ ] <strong>F</strong>：写 post-mortem reviewer agent prompt + 5 项检查实现</li>
+<li>[ ] <strong>G</strong>：写 trace 自动算 5 个 metric 的脚本</li>
+<li>[ ] <strong>H</strong>：按 §7.2 配置主力模型</li>
+</ul>
+<p>建议优先级：A &gt; B &gt; D &gt; C &gt; F/G &gt; E &gt; H</p>
+<hr />
+<h2 id="9-v21-backlog">9. 仍未解决的问题（v2.1 backlog）</h2>
+<ol>
+<li><strong>judge 的 escalate 阈值</strong>：多少次循环算"无法收敛"，需要请 Joey 介入？</li>
+<li><strong>是否需要"二审 judge"</strong>：单 judge 万一固执怎么办？是否引入双 judge 投票？</li>
+<li><strong>跨 run 学习</strong>：不合格 run 的失败模式如何沉淀进下版 prompt？需要长期记录。</li>
+<li><strong>成本控制</strong>：6 角色 × N 轮 × M token 可能很贵。需要 lite/standard/full 三档预算。</li>
+<li><strong>真实任务验证</strong>：v2.1 还没在小说项目 / 决策项目里跑过。先要选个 pilot task。</li>
+</ol>
+<hr />
+<h2 id="10">10. 配套素材索引</h2>
+<table>
+<thead>
+<tr>
+<th>素材</th>
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2.0 原始方法论</td>
+<td><code>memory/2026-04-09.md</code> "六顶帽子项目"段 + 飞书 docx</td>
+<td>历史基线</td>
+</tr>
+<tr>
+<td>PTFA 论文精读</td>
+<td><a href="../ptfa-paper-deep-read/"><code>ptfa-paper-deep-read.md</code></a></td>
+<td>升级依据</td>
+</tr>
+<tr>
+<td>PTFA 报告 + 心得</td>
+<td><a href="../ptfa-takeaways/"><code>ptfa-takeaways.md</code></a></td>
+<td>Joey 视角总结</td>
+</tr>
+<tr>
+<td>LLM 性格研究综述</td>
+<td><a href="../llm-personality-research/"><code>llm-personality-research.md</code></a></td>
+<td>14 篇真实文献</td>
+</tr>
+<tr>
+<td>9 模型自评互评测试</td>
+<td>2026-05-02 飞书话题（待整理）</td>
+<td>模型分配数据依据</td>
+</tr>
+<tr>
+<td>AI 幻觉与多 agent 编排</td>
+<td><a href="../ai-hallucination/"><code>ai-hallucination.md</code></a></td>
+<td>防偏差参考</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="v21-ptfa">附录：v2.1 与 PTFA 的关系</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>PTFA</th>
+<th>v2.0</th>
+<th><strong>v2.1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>帽子数</td>
+<td>6</td>
+<td>4 + 都知</td>
+<td>4 + 2 都知</td>
+</tr>
+<tr>
+<td>facilitator/judge</td>
+<td>合一（蓝帽兼任）</td>
+<td>合一（都知兼任）</td>
+<td><strong>拆开</strong></td>
+</tr>
+<tr>
+<td>阶段控制</td>
+<td>prompt only（失控）</td>
+<td>prompt only</td>
+<td><strong>硬编码</strong></td>
+</tr>
+<tr>
+<td>发言调度</td>
+<td>每帽 self-veto</td>
+<td>都知调度</td>
+<td><strong>self-veto + 都知仲裁</strong></td>
+</tr>
+<tr>
+<td>工具</td>
+<td>无</td>
+<td>无</td>
+<td><strong>白帽强制 web_search</strong></td>
+</tr>
+<tr>
+<td>评测</td>
+<td>Likert 问卷</td>
+<td>凭感觉</td>
+<td><strong>5 项 metric + post-mortem</strong></td>
+</tr>
+<tr>
+<td>红帽</td>
+<td>自评+追问</td>
+<td>删</td>
+<td><strong>删但保留 functional core</strong></td>
+</tr>
+<tr>
+<td>模型分配</td>
+<td>单一 OpenAI</td>
+<td>凭感觉</td>
+<td><strong>基于实测 + SycEval 数据</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>v2.1 是 PTFA 失败模式的工程对策版本</strong>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
