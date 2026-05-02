@@ -49,6 +49,11 @@ nav:
     - Context 预算指南: methodology/context-budget-guide.md
     - Handoff 交接模板: methodology/handoff-template.md
     - 历史演义叙事方法论: methodology/historical-fiction.md
+    - 六顶帽子 v2.1（4 帽 + 都知）: methodology/six-hats-v2.1.md
+    - PTFA 报告 + 心得: methodology/ptfa-takeaways.md
+    - PTFA 论文精读底稿: methodology/ptfa-paper-deep-read.md
+    - LLM 性格研究综述: methodology/llm-personality-research.md
+    - AI 幻觉与多 agent 编排: methodology/ai-hallucination.md
   - 踩坑录:
     - 工兵陷阱: lessons/soldier-trap.md
   - 工具与实践:
